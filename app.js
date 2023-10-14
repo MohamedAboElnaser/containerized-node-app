@@ -1,12 +1,14 @@
 const express = require("express");
+const morgan = require("morgan");
 
 const app = express();
+app.use(morgan('dev'));
 
 app.get("/*", (req, res) => {
     res.json({
         message: `Welcome to our api`,
-        url:req.url
+        url: req.url,
     });
 });
 
-module.exports=app;
+module.exports = app;
